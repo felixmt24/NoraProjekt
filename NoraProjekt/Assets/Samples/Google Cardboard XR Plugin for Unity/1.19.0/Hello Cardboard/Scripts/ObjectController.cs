@@ -18,6 +18,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Controls target objects behaviour.
@@ -48,17 +49,17 @@ public class ObjectController : MonoBehaviour
     /// <summary>
     /// Start is called before the first frame update.
     /// </summary>
-    public void Start()
+    /*public void Start()
     {
         _startingPosition = transform.parent.localPosition;
         _myRenderer = GetComponent<Renderer>();
         SetMaterial(false);
-    }
+    } */
 
     /// <summary>
     /// Teleports this instance randomly when triggered by a pointer click.
     /// </summary>
-    public void TeleportRandomly()
+    /*public void TeleportRandomly()
     {
         // Picks a random sibling, activates it and deactivates itself.
         int sibIdx = transform.GetSiblingIndex();
@@ -79,23 +80,23 @@ public class ObjectController : MonoBehaviour
         randomSib.SetActive(true);
         gameObject.SetActive(false);
         SetMaterial(false);
-    }
+    } */
 
     /// <summary>
     /// This method is called by the Main Camera when it starts gazing at this GameObject.
     /// </summary>
-    public void OnPointerEnter()
+    /*public void OnPointerEnter()
     {
         SetMaterial(true);
-    }
+    } */
 
     /// <summary>
     /// This method is called by the Main Camera when it stops gazing at this GameObject.
     /// </summary>
-    public void OnPointerExit()
+   /* public void OnPointerExit()
     {
         SetMaterial(false);
-    }
+    } */ 
 
     /// <summary>
     /// This method is called by the Main Camera when it is gazing at this GameObject and the screen
@@ -103,9 +104,10 @@ public class ObjectController : MonoBehaviour
     /// </summary>
     public void OnPointerClick()
     {
-        TeleportRandomly();
+       SceneManager.LoadScene("montag", LoadSceneMode.Additive);
     }
 
+    /*
     /// <summary>
     /// Sets this instance's material according to gazedAt status.
     /// </summary>
@@ -119,5 +121,5 @@ public class ObjectController : MonoBehaviour
         {
             _myRenderer.material = gazedAt ? GazedAtMaterial : InactiveMaterial;
         }
-    }
+    } */
 }
